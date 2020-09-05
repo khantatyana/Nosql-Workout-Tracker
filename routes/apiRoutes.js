@@ -18,7 +18,7 @@ module.exports = function(app) {
 
   app.get("/api/workouts/range", (req, res) => {
     console.log("range");
-    db.Workout.find()
+    db.Workout.find().limit(7)
         .then(dbworkout => {
             res.json(dbworkout);
         })
@@ -32,8 +32,8 @@ module.exports = function(app) {
       db.Workout.create(req.body).then(dbExercise => {
           res.json(dbExercise);
       })
-          .catch(err => {
-              res.json(err);
-          });
+        .catch(err => {
+            res.json(err);
+        });
   })
 };
