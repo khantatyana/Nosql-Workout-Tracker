@@ -29,7 +29,7 @@ module.exports = function(app) {
   })
 
   app.post("/api/workouts", (req, res) => {
-     
+     console.log("did i create a workout?");
       db.Workout.create({}).then(dbExercise => {
           res.json(dbExercise);
       })
